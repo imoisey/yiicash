@@ -6,7 +6,10 @@ use Yii;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use yii\web\BadRequestHttpException;
 use app\modules\user\models\LoginForm;
+use app\modules\user\models\PasswordResetForm;
+use app\modules\user\models\PasswordResetRequestForm;
 
 /**
  * Default controller for the `user` module
@@ -46,6 +49,51 @@ class DefaultController extends Controller
     public function actionIndex()
     {
         return $this->render('index');
+    }
+
+    /**
+     * Renders the password reset form view for the module
+     * @return string
+     */
+    public function actionPasswordResetRequest()
+    {
+        $model = new PasswordResetRequestForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            if ($model->sendEmail()) {
+                Yii::$app->getSession()->setFlash('success', 'Спасибо! На ваш Email было отправлено письмо со ссылкой на восстановление пароля.');
+ 
+                return $this->goHome();
+            } else {
+                Yii::$app->getSession()->setFlash('error', 'Извините. У нас возникли проблемы с отправкой.');
+            }
+        }
+ 
+        return $this->render('passwordResetRequest', [
+            'model' => $model,
+        ]);
+    }
+ 
+    /**
+     * Renders the password reset view for the module
+     * @return string
+     */
+    public function actionPasswordReset($token)
+    {
+        try {
+            $model = new PasswordResetForm($token);
+        } catch (InvalidParamException $e) {
+            throw new BadRequestHttpException($e->getMessage());
+        }
+ 
+        if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
+            Yii::$app->getSession()->setFlash('success', 'Спасибо! Пароль успешно изменён.');
+ 
+            return $this->goHome();
+        }
+ 
+        return $this->render('passwordReset', [
+            'model' => $model,
+        ]);
     }
 
     /**

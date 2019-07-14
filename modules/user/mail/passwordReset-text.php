@@ -3,8 +3,8 @@
 /* @var $user common\models\User */
 $resetLink = Yii::$app->urlManager->createAbsoluteUrl(['user/default/reset-password', 'token' => $user->password_reset_token]);
 ?>
-Hello <?= $user->username ?>,
+<?= Yii::t('app', 'Hello, {username}', ['username' => $user->username]) ?>,
 
-Follow the link below to reset your password:
+<?= Yii::t('app', 'Follow the link below to reset your password') ?>:
 
 <?= $resetLink ?>

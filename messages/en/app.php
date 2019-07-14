@@ -1,0 +1,25 @@
+<?php
+
+return [
+    'Home' => 'Home',
+    'Contact' => 'Contact',
+    'Login' => 'Login',
+    'Logout ({username})' => 'Logout ({username})',
+    'Please fill out the following fields to login' => 'Please fill out the following fields to login',
+    'If you forgot your password you can' => 'If you forgot your password you can',
+    'Reset password' => 'Reset password',
+    'Please choose your new password' => 'Please choose your new password',
+    'Save' => 'Save',
+    'Please fill out your email. A link to reset password will be sent there.' => 'Please fill out your email. A link to reset password will be sent there.',
+    'Send' => 'Send',
+    'Hello, {username}' => 'Hello, {username}',
+    'Follow the link below to reset your password' => 'Follow the link below to reset your password',
+    'The above error occurred while the Web server was processing your request' => 'The above error occurred while the Web server was processing your request',
+    'Please contact us if you think this is a server error. Thank you.' => 'Please contact us if you think this is a server error. Thank you.',
+    'reset it' => 'reset it',
+    'Username' => 'Login',
+    'Password' => 'Password',
+    'Remember me' => 'Remember me',
+    'Incorrect username or password.' => 'Incorrect username or password.',
+    'Your account is blocked.' => 'Your account is blocked.',
+];

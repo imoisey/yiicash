@@ -8,6 +8,7 @@ $params = ArrayHelper::merge(
 );
 
 return [
+    'name' => 'ИС КассаШтрафов',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'aliases' => [
@@ -46,6 +47,13 @@ return [
         ],
         'log' => [
             'class' => 'yii\log\Dispatcher',
+        ],
+        'i18n' => [
+            'translations' => [
+                'app' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                ],
+            ],
         ],
     ],
     'params' => $params,

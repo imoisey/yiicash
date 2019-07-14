@@ -2,6 +2,7 @@
 
 $config = [
     'id' => 'app',
+    'language'=>'ru-RU',
     'modules' => [
         'main' => [
             'class' => 'app\modules\main\Module',
@@ -17,7 +18,7 @@ $config = [
             'loginUrl' => ['user\default\login'],
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'main/default/error',
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

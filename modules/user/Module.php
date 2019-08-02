@@ -2,6 +2,8 @@
 
 namespace app\modules\user;
 
+use yii\filters\AccessControl;
+
 /**
  * user module definition class
  */

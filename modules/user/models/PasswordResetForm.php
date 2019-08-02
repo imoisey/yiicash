@@ -1,8 +1,9 @@
 <?php
 namespace app\modules\user\models;
 
-use yii\base\InvalidArgumentException;
+use Yii;
 use yii\base\Model;
+use yii\base\InvalidArgumentException;
 
 /**
  * Password reset form
@@ -44,6 +45,16 @@ class PasswordResetForm extends Model
         return [
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels()
+    {
+        return [
+            'password' => Yii::t('app', 'Password'),
         ];
     }
 

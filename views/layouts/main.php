@@ -35,24 +35,30 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
+
+    if(Yii::$app->user->isGuest) {
+        $navItems = [
+            ['label' => Yii::t('app','Login'), 'url' => ['/user/default/login']]
+        ];
+    } else {
+        $navItems = [
+            ['label' => Yii::t('app','Home'), 'url' => ['/main/default/index']],
+            ['label' => Yii::t('app','Contact'), 'url' => ['/main/contact/index']], 
+        ];
+        $navItems[] = ('<li>'
+        . Html::beginForm(['/user/default/logout'], 'post')
+        . Html::submitButton(
+            Yii::t('app','Logout ({username})', ['username' => Yii::$app->user->identity->getFullName()]),
+            ['class' => 'btn btn-link logout']
+        )
+        . Html::endForm()
+        . '</li>');
+    }
+
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            ['label' => Yii::t('app','Home'), 'url' => ['/main/default/index']],
-            ['label' => Yii::t('app','Contact'), 'url' => ['/main/contact/index']],
-            Yii::$app->user->isGuest ? (
-                ['label' => Yii::t('app','Login'), 'url' => ['/user/default/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/user/default/logout'], 'post')
-                . Html::submitButton(
-                    Yii::t('app','Logout ({username})', ['username' => Yii::$app->user->identity->username]),
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
-        ],
+        'encodeLabels' => false,
+        'items' => $navItems,
     ]);
     NavBar::end();
     ?>
@@ -66,7 +72,7 @@ AppAsset::register($this);
     </div>
 </div>
 
-<footer class="footer">
+<footer class="footer navbar-fixed-bottom">
     <div class="container">
         <p class="pull-left">&copy; <?= Yii::$app->name ?> </p>
 

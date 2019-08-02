@@ -2,6 +2,8 @@
 
 namespace app\modules\main;
 
+use yii\filters\AccessControl;
+
 /**
  * main module definition class
  */
@@ -20,5 +22,20 @@ class Module extends \yii\base\Module
         parent::init();
 
         // custom initialization code goes here
+    }
+
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
+        ];
     }
 }

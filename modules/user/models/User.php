@@ -89,6 +89,11 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         ];
     }
 
+    public function getFullName()
+    {
+        return "{$this->firstname} {$this->lastname}";
+    }
+
     /**
      * Finds user by username
      *

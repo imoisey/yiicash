@@ -51,7 +51,12 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         return [
             ['username', 'required'],
             ['username', 'match', 'pattern' => '#^[\w_-]+$#is'],
-            ['username', 'unique', 'targetClass' => self::className(), 'message' => 'This username has already been taken.'],
+            ['username', 'unique', 'targetClass' => self::className(), 
+                'message' => Yii::t('app', 'This {name} has already been taken.', [
+                    'name' => $this->attributeLabels()['username']
+                ]),
+                'filter' => ['<>', 'id', $this->id],
+            ],
             ['username', 'string', 'min' => 2, 'max' => 255],
 
             ['firstname', 'required'],
@@ -62,7 +67,12 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
 
             ['email', 'required'],
             ['email', 'email'],
-            ['email', 'unique', 'targetClass' => self::className(), 'message' => 'This email has already been taken.'],
+            ['email', 'unique', 'targetClass' => self::className(), 
+                'message' => Yii::t('app', 'This {name} has already been taken.', [
+                    'name' => $this->attributeLabels()['email'],
+                ]),
+                'filter' => ['<>', 'id', $this->id],
+            ],
             ['email', 'string', 'max' => 255],
 
             ['status', 'integer'],
@@ -79,13 +89,14 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return [
             'id' => 'ID',
-            'created_at' => 'Создан',
-            'updated_at' => 'Обновлен',
-            'username' => 'Логин',
-            'firstname' => 'Имя',
-            'lastname' => 'Фамилия',
-            'email' => 'Email',
-            'status' => 'Статус',
+            'created_at' => Yii::t('app', 'Create At'),
+            'updated_at' =>  Yii::t('app', 'Update At'),
+            'fullname' =>  Yii::t('app', 'Full Name'),
+            'username' =>  Yii::t('app', 'Username'),
+            'firstname' =>  Yii::t('app', 'Firstname'),
+            'lastname' =>  Yii::t('app', 'Lastname'),
+            'email' =>  Yii::t('app', 'Email'),
+            'statusname' =>  Yii::t('app', 'Status Name'),
         ];
     }
 

@@ -43,16 +43,25 @@ AppAsset::register($this);
     } else {
         $navItems = [
             ['label' => Yii::t('app','Home'), 'url' => ['/main/default/index']],
-            ['label' => Yii::t('app','Contact'), 'url' => ['/main/contact/index']], 
+            ['label' => Yii::t('app','Contact'), 'url' => ['/main/contact/index']],
+            [
+                'label' => Yii::$app->user->identity->getFullName(),
+                'items' => [
+                    [
+                        'label' => Yii::t('app', 'Profile'), 
+                        'url' => ['/user/profile/index'],
+                    ],
+                    '<li class="divider"></li>',
+                    [
+                        'label' => Yii::t('app', 'Logout'),
+                        'url' => ['/user/default/logout'],
+                        'linkOptions' => [
+                            'data-method' => 'post',
+                        ]
+                    ]
+                ]
+            ] 
         ];
-        $navItems[] = ('<li>'
-        . Html::beginForm(['/user/default/logout'], 'post')
-        . Html::submitButton(
-            Yii::t('app','Logout ({username})', ['username' => Yii::$app->user->identity->getFullName()]),
-            ['class' => 'btn btn-link logout']
-        )
-        . Html::endForm()
-        . '</li>');
     }
 
     echo Nav::widget([

@@ -51,7 +51,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         return [
             ['username', 'required'],
             ['username', 'match', 'pattern' => '#^[\w_-]+$#is'],
-            ['username', 'unique', 'targetClass' => self::className(), 
+            ['username', 'unique', 'targetClass' => self::className(),
                 'message' => Yii::t('app', 'This {name} has already been taken.', [
                     'name' => $this->attributeLabels()['username']
                 ]),
@@ -67,7 +67,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
 
             ['email', 'required'],
             ['email', 'email'],
-            ['email', 'unique', 'targetClass' => self::className(), 
+            ['email', 'unique', 'targetClass' => self::className(),
                 'message' => Yii::t('app', 'This {name} has already been taken.', [
                     'name' => $this->attributeLabels()['email'],
                 ]),
@@ -96,6 +96,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
             'firstname' =>  Yii::t('app', 'Firstname'),
             'lastname' =>  Yii::t('app', 'Lastname'),
             'email' =>  Yii::t('app', 'Email'),
+            'status' => Yii::t('app', 'Status Name'),
             'statusname' =>  Yii::t('app', 'Status Name'),
         ];
     }
@@ -177,9 +178,9 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         return $timestamp + $expire >= time();
     }
 
-     /**
-     * Generates new password reset token
-     */
+    /**
+    * Generates new password reset token
+    */
     public function generatePasswordResetToken()
     {
         $this->password_reset_token = Yii::$app->security->generateRandomString() . '_' . time();

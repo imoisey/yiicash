@@ -36,19 +36,19 @@ AppAsset::register($this);
         ],
     ]);
 
-    if(Yii::$app->user->isGuest) {
+    if (Yii::$app->user->isGuest) {
         $navItems = [
-            ['label' => Yii::t('app','Login'), 'url' => ['/user/default/login']]
+            ['label' => Yii::t('app', 'Login'), 'url' => ['/user/default/login']]
         ];
     } else {
         $navItems = [
-            ['label' => Yii::t('app','Home'), 'url' => ['/main/default/index']],
-            ['label' => Yii::t('app','Contact'), 'url' => ['/main/contact/index']],
+            ['label' => Yii::t('app', 'Home'), 'url' => ['/main/default/index']],
+            ['label' => Yii::t('app', 'Users'), 'url' => ['/main/users/index']],
             [
                 'label' => Yii::$app->user->identity->getFullName(),
                 'items' => [
                     [
-                        'label' => Yii::t('app', 'Profile'), 
+                        'label' => Yii::t('app', 'Profile'),
                         'url' => ['/user/profile/index'],
                     ],
                     '<li class="divider"></li>',
@@ -60,7 +60,7 @@ AppAsset::register($this);
                         ]
                     ]
                 ]
-            ] 
+            ]
         ];
     }
 

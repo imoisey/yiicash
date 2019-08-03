@@ -53,8 +53,8 @@ class PasswordChangeForm extends Model
      */
     public function currentPassword($attribute, $params)
     {
-        if(!$this->hasErrors()) {
-            if(!$this->user->validatePassword($this->$attribute)) {
+        if (!$this->hasErrors()) {
+            if (!$this->user->validatePassword($this->$attribute)) {
                 $this->addError($attribute, Yii::t('app', 'Current password is incorrect'));
             }
         }
@@ -65,7 +65,7 @@ class PasswordChangeForm extends Model
      */
     public function changePassword()
     {
-        if($this->validate()) {
+        if ($this->validate()) {
             $user = $this->user;
             $user->setPassword($this->newPassword);
             return $user->save();

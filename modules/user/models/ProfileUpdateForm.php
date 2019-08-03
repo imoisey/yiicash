@@ -51,8 +51,8 @@ class ProfileUpdateForm extends Model
         return [
             ['username', 'required'],
             ['username', 'match', 'pattern' => '#^[\w_-]+$#is'],
-            ['username', 'unique', 'targetClass' => User::className(), 
-                'message' => Yii::t('app','This {name} has already been taken.',[
+            ['username', 'unique', 'targetClass' => User::className(),
+                'message' => Yii::t('app', 'This {name} has already been taken.', [
                     'name' => $this->attributeLabels()['username']
                 ]),
                 'filter' => ['<>', 'id', $this->user->id],

@@ -39,8 +39,8 @@ class SetColumn extends DataColumn
 
     private function getStatusName($model, $key, $index, $value)
     {
-        if($this->name !== null) {
-            if(is_string($this->name)) {
+        if ($this->name !== null) {
+            if (is_string($this->name)) {
                 $name = ArrayHelper::getValue($model, $this->name);
             } else {
                 $name = call_user_func($this->name, $model, $key, $index, $this);

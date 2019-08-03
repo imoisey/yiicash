@@ -35,7 +35,7 @@ class LinkColumn extends DataColumn
 
     public function createUrl($model, $key, $index)
     {
-        if($this->url instanceof Closure) {
+        if ($this->url instanceof Closure) {
             return call_user_func($this->url, $model, $key, $index);
         } else {
             $params = is_array($key) ? $key : ['id' => (string) $key];
@@ -43,5 +43,4 @@ class LinkColumn extends DataColumn
             return Url::toRoute($params);
         }
     }
-
 }

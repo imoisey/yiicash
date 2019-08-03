@@ -1,11 +1,9 @@
 <?php
 
-namespace app\modules\user\models;
+namespace app\modules\user\forms;
 
 use Yii;
 use yii\base\Model;
-use ReflectionClass;
-use ReflectionProperty;
 use app\modules\user\models\User;
 
 class ProfileUpdateForm extends Model

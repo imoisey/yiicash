@@ -6,8 +6,8 @@ use Yii;
 use yii\web\Controller;
 use yii\filters\AccessControl;
 use app\modules\user\models\User;
-use app\modules\user\models\ProfileUpdateForm;
-use app\modules\user\models\PasswordChangeForm;
+use app\modules\user\forms\ProfileUpdateForm;
+use app\modules\user\forms\PasswordChangeForm;
 
 class ProfileController extends Controller
 {

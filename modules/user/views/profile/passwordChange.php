@@ -5,7 +5,7 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\user\models\ChangePasswordForm */
+/* @var $model app\modules\user\forms\ChangePasswordForm */
  
 $this->title = Yii::t('app', 'Change Password');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Profile'), 'url' => ['index']];

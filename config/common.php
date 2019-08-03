@@ -29,8 +29,8 @@ return [
                 '<_a:(error)>' => 'main/default/<_a>',
                 '<_a:(login|logout|password-reset-request|password-reset)>' => 'user/default/<_a>',
 
-                '<_c:[\w\-]+>' => 'main/<_c>/index',
-                '<_c:[\w\-]+>/<_a:[\w\-]+>' => 'main/<_c>/<_a>',
+                'users' => 'main/users/index',
+                'users/<_a:[\w\-]+>' => 'main/users/<_a>',
 
                 '<_m:[\w\-]+>' => '<_m>/default/index',
                 '<_m:[\w\-]+>/<id:\d+>' => '<_m>/default/view',

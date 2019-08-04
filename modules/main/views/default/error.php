@@ -6,6 +6,7 @@
 /* @var $exception Exception */
 
 use yii\helpers\Html;
+use app\modules\main\Module as MainModule;
 
 $this->title = $name;
 ?>
@@ -18,10 +19,10 @@ $this->title = $name;
     </div>
 
     <p>
-        <?= Yii::t('app', 'The above error occurred while the Web server was processing your request') ?>.
+        <?= MainModule::t('module','The above error occurred while the Web server was processing your request') ?>.
     </p>
     <p>
-        <?= Yii::t('app', 'Please contact us if you think this is a server error. Thank you.') ?>
+        <?= MainModule::t('module','Please contact us if you think this is a server error. Thank you.') ?>
     </p>
 
 </div>

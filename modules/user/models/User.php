@@ -3,6 +3,7 @@
 namespace app\modules\user\models;
 
 use Yii;
+use app\modules\user\Module as UserModule;
 use yii\helpers\ArrayHelper;
 use yii\web\IdentityInterface;
 use yii\base\NotSupportedException;
@@ -89,15 +90,15 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return [
             'id' => 'ID',
-            'created_at' => Yii::t('app', 'Create At'),
-            'updated_at' =>  Yii::t('app', 'Update At'),
-            'fullname' =>  Yii::t('app', 'Full Name'),
-            'username' =>  Yii::t('app', 'Username'),
-            'firstname' =>  Yii::t('app', 'Firstname'),
-            'lastname' =>  Yii::t('app', 'Lastname'),
-            'email' =>  Yii::t('app', 'Email'),
-            'status' => Yii::t('app', 'Status Name'),
-            'statusname' =>  Yii::t('app', 'Status Name'),
+            'created_at' => UserModule::t('module','Create At'),
+            'updated_at' =>  UserModule::t('module','Update At'),
+            'fullname' =>  UserModule::t('module','Full Name'),
+            'username' =>  UserModule::t('module','Username'),
+            'firstname' =>  UserModule::t('module','Firstname'),
+            'lastname' =>  UserModule::t('module','Lastname'),
+            'email' =>  UserModule::t('module','Email'),
+            'status' => UserModule::t('module','Status Name'),
+            'statusname' =>  UserModule::t('module','Status Name'),
         ];
     }
 
@@ -150,9 +151,9 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
      * @param string $token password reset token
      * @return static|null
      */
-    public static function findByPasswordResetToken($token)
+    public static function findByPasswordResetToken($token, $timeout)
     {
-        if (!static::isPasswordResetTokenValid($token)) {
+        if (!static::isPasswordResetTokenValid($token, $timeout)) {
             return null;
         }
         return static::findOne([
@@ -167,15 +168,14 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
      * @param string $token password reset token
      * @return boolean
      */
-    public static function isPasswordResetTokenValid($token)
+    public static function isPasswordResetTokenValid($token, $timeout)
     {
         if (empty($token)) {
             return false;
         }
-        $expire = Yii::$app->params['user.passwordResetTokenExpire'];
         $parts = explode('_', $token);
         $timestamp = (int) end($parts);
-        return $timestamp + $expire >= time();
+        return $timestamp + $timeout >= time();
     }
 
     /**

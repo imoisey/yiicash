@@ -3,9 +3,10 @@
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \common\models\LoginForm */
 use yii\helpers\Html;
+use app\modules\user\Module as UserModule;
 use yii\bootstrap\ActiveForm;
 
-$this->title = Yii::t('app', 'Login');
+$this->title = UserModule::t('module','Login');
 ?>
 <div class="user-default-login">
 
@@ -16,7 +17,7 @@ $this->title = Yii::t('app', 'Login');
                 <h3 class="panel-title"><?= Html::encode($this->title) ?></h3>
             </div>
             <div class="panel-body">
-                <p><?= Yii::t('app', 'Please fill out the following fields to login')?>:</p>
+                <p><?= UserModule::t('module','Please fill out the following fields to login')?>:</p>
 
                         <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
 
@@ -27,11 +28,11 @@ $this->title = Yii::t('app', 'Login');
                             <?= $form->field($model, 'rememberMe')->checkbox() ?>
 
                             <div class="form-group">
-                                <?= Html::submitButton(Yii::t('app', 'Login'), ['class' => 'btn btn-primary btn-block', 'name' => 'login-button']) ?>
+                                <?= Html::submitButton(UserModule::t('module','Login'), ['class' => 'btn btn-primary btn-block', 'name' => 'login-button']) ?>
                             </div>
 
                             <div class="text-center">
-                            <?= Html::a(Yii::t('app', 'Forgot password?'), ['/user/default/password-reset-request']) ?>.
+                            <?= Html::a(UserModule::t('module','Forgot password?'), ['/user/default/password-reset-request']) ?>.
                             </div>
 
                         <?php ActiveForm::end(); ?>

@@ -9,6 +9,8 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use app\modules\user\Module as UserModule;
+use app\modules\main\Module as MainModule;
 
 AppAsset::register($this);
 ?>
@@ -38,22 +40,22 @@ AppAsset::register($this);
 
     if (Yii::$app->user->isGuest) {
         $navItems = [
-            ['label' => Yii::t('app', 'Login'), 'url' => ['/user/default/login']]
+            ['label' => UserModule::t('module', 'Login'), 'url' => ['/user/default/login']]
         ];
     } else {
         $navItems = [
             ['label' => Yii::t('app', 'Home'), 'url' => ['/main/default/index']],
-            ['label' => Yii::t('app', 'Users'), 'url' => ['/main/users/index']],
+            ['label' => MainModule::t('module', 'Users'), 'url' => ['/main/users/index']],
             [
                 'label' => Yii::$app->user->identity->getFullName(),
                 'items' => [
                     [
-                        'label' => Yii::t('app', 'Profile'),
+                        'label' => UserModule::t('module', 'Profile'),
                         'url' => ['/user/profile/index'],
                     ],
                     '<li class="divider"></li>',
                     [
-                        'label' => Yii::t('app', 'Logout'),
+                        'label' => UserModule::t('module', 'Logout'),
                         'url' => ['/user/default/logout'],
                         'linkOptions' => [
                             'data-method' => 'post',

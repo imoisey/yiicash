@@ -2,13 +2,14 @@
  
 use Yii;
 use yii\helpers\Html;
+use app\modules\user\Module as UserModule;
 use yii\bootstrap\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\user\forms\ChangePasswordForm */
  
-$this->title = Yii::t('app', 'Change Password');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Profile'), 'url' => ['index']];
+$this->title = UserModule::t('module','Change Password');
+$this->params['breadcrumbs'][] = ['label' => UserModule::t('module','Profile'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-profile-password-change">
@@ -24,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= $form->field($model, 'newPasswordRepeat')->passwordInput(['maxlength' => true]) ?>
  
         <div class="form-group">
-            <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-primary']) ?>
+            <?= Html::submitButton(UserModule::t('module','Save'), ['class' => 'btn btn-primary']) ?>
         </div>
  
         <?php ActiveForm::end(); ?>

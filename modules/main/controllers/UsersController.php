@@ -125,6 +125,6 @@ class UsersController extends Controller
             return $model;
         }
 
-        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+        throw new NotFoundHttpException(Module::t('module','The requested page does not exist.'));
     }
 }

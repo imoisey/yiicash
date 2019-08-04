@@ -57,7 +57,7 @@ class DefaultController extends Controller
      */
     public function actionPasswordResetRequest()
     {
-        $model = new PasswordResetRequestForm();
+        $model = new PasswordResetRequestForm($this->module->passwordResetTokenExpire);
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {
                 Yii::$app->getSession()->setFlash('success', 'Спасибо! На ваш Email было отправлено письмо со ссылкой на восстановление пароля.');
@@ -80,7 +80,7 @@ class DefaultController extends Controller
     public function actionPasswordReset($token)
     {
         try {
-            $model = new PasswordResetForm($token);
+            $model = new PasswordResetForm($token, $this->module->passwordResetTokenExpire);
         } catch (InvalidParamException $e) {
             throw new BadRequestHttpException($e->getMessage());
         }

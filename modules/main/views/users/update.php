@@ -1,16 +1,17 @@
 <?php
 
 use yii\helpers\Html;
+use app\modules\main\Module as MainModule;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\user\models\User */
 
-$this->title = Yii::t('app', 'Update: {name}', [
+$this->title = MainModule::t('module', 'Update: {name}', [
     'name' => $model->fullname,
 ]);
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Users'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => MainModule::t('module','Users'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->fullname, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
+$this->params['breadcrumbs'][] = MainModule::t('module','Update');
 ?>
 <div class="user-update">
 

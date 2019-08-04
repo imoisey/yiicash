@@ -2,6 +2,7 @@
 
 namespace app\modules\user;
 
+use Yii;
 use yii\filters\AccessControl;
 
 /**
@@ -15,6 +16,11 @@ class Module extends \yii\base\Module
     public $controllerNamespace = 'app\modules\user\controllers';
 
     /**
+     * @var int
+     */
+    public $passwordResetTokenExpire = 3600;
+
+    /**
      * {@inheritdoc}
      */
     public function init()
@@ -22,5 +28,10 @@ class Module extends \yii\base\Module
         parent::init();
 
         // custom initialization code goes here
+    }
+
+    public static function t($category, $message, $params = [], $language = null)
+    {
+        return Yii::t('modules/user/' . $category, $message, $params, $language);
     }
 }

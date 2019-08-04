@@ -10,7 +10,11 @@ $params = ArrayHelper::merge(
 return [
     'name' => 'ИС КассаШтрафов',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => [
+        'log',
+        'app\modules\main\Bootstrap',
+        'app\modules\user\Bootstrap'
+    ],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',

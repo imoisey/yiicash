@@ -1,12 +1,13 @@
 <?php
 
 use yii\helpers\Html;
+use app\modules\main\Module as MainModule;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\user\models\User */
 
-$this->title = Yii::t('app', 'Create');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Users'), 'url' => ['index']];
+$this->title = MainModule::t('module','Create');
+$this->params['breadcrumbs'][] = ['label' => MainModule::t('module','Users'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-create">

@@ -3,6 +3,16 @@
 $config = [
     'id' => 'app-console',
     'controllerNamespace' => 'app\commands',
+    'modules' => [
+        'main' => [
+            'class' => 'app\modules\main\Module',
+            'controllerNamespace' => 'app\modules\main\commands'
+        ],
+        'user' => [
+            'class' => 'app\modules\user\Module',
+            'controllerNamespace' => 'app\modules\user\commands'
+        ],
+    ],
     /*
     'controllerMap' => [
         'fixture' => [ // Fixture generation command line.

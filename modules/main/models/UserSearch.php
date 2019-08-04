@@ -3,6 +3,7 @@
 namespace app\modules\main\models;
 
 use yii\base\Model;
+use app\modules\main\Module as MainModule;
 use yii\data\ActiveDataProvider;
 use app\modules\user\models\User;
 
@@ -38,15 +39,15 @@ class UserSearch extends Model
     {
         return [
             'id' => 'ID',
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
-            'fistname' => Yii::t('app', 'Firstname'),
-            'lastname' => Yii::t('app', 'Lastname'),
-            'username' => Yii::t('app', 'Username'),
-            'email' => Yii::t('app', 'Email'),
-            'status' => Yii::t('app', 'Status'),
-            'date_from' => Yii::t('app', 'Date From'),
-            'date_to' => Yii::t('app', 'Date To')
+            'created_at' => MainModule::t('module','Created At'),
+            'updated_at' => MainModule::t('module','Updated At'),
+            'fistname' => MainModule::t('module','Firstname'),
+            'lastname' => MainModule::t('module','Lastname'),
+            'username' => MainModule::t('module','Username'),
+            'email' => MainModule::t('module','Email'),
+            'status' => MainModule::t('module','Status'),
+            'date_from' => MainModule::t('module','Date From'),
+            'date_to' => MainModule::t('module','Date To')
         ];
     }
 

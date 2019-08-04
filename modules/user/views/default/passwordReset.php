@@ -3,9 +3,10 @@
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \frontend\models\ResetPasswordForm */
 use yii\helpers\Html;
+use app\modules\user\Module as UserModule;
 use yii\bootstrap\ActiveForm;
 
-$this->title = Yii::t('app', 'Reset password');
+$this->title = UserModule::t('module','Reset password');
 ?>
 <div class="user-default-reset-password">
 
@@ -16,14 +17,14 @@ $this->title = Yii::t('app', 'Reset password');
                 <h3 class="panel-title"><?= Html::encode($this->title) ?></h3>
             </div>
             <div class="panel-body">
-                <p><?= Yii::t('app', 'Please choose your new password') ?>:</p>
+                <p><?= UserModule::t('module','Please choose your new password') ?>:</p>
 
                 <?php $form = ActiveForm::begin(['id' => 'reset-password-form']); ?>
 
                 <?= $form->field($model, 'password')->passwordInput(['autofocus' => true]) ?>
 
                 <div class="form-group">
-                    <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-primary']) ?>
+                    <?= Html::submitButton(UserModule::t('module','Save'), ['class' => 'btn btn-primary']) ?>
                 </div>
 
                 <?php ActiveForm::end(); ?>

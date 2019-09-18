@@ -10,7 +10,6 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use app\modules\user\Module as UserModule;
-use app\modules\main\Module as MainModule;
 
 AppAsset::register($this);
 ?>
@@ -45,7 +44,7 @@ AppAsset::register($this);
     } else {
         $navItems = [
             ['label' => Yii::t('app', 'Home'), 'url' => ['/main/default/index']],
-            ['label' => MainModule::t('module', 'Users'), 'url' => ['/main/users/index']],
+            ['label' => UserModule::t('module', 'Users'), 'url' => ['/user/users/index']],
             [
                 'label' => Yii::$app->user->identity->getFullName(),
                 'items' => [

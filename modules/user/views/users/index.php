@@ -3,8 +3,8 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use kartik\date\DatePicker;
-use app\modules\main\Module as MainModule;
-use app\modules\main\models\User;
+use app\modules\user\Module as UserModule;
+use app\modules\user\models\backend\User;
 use app\components\grid\SetColumn;
 use app\components\grid\LinkColumn;
 use app\components\grid\ActionColumn;
@@ -13,7 +13,7 @@ use app\components\grid\ActionColumn;
 /* @var $searchModel app\modules\main\models\UserSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = MainModule::t('module','Users');
+$this->title = UserModule::t('module','Users');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-index">
@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(MainModule::t('module','Create'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(UserModule::t('module','Create'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]);?>

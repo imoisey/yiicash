@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\main\models;
+namespace app\modules\user\models\backend;
 
 use yii\base\Model;
 use app\modules\main\Module as MainModule;
@@ -39,15 +39,15 @@ class UserSearch extends Model
     {
         return [
             'id' => 'ID',
-            'created_at' => MainModule::t('module','Created At'),
-            'updated_at' => MainModule::t('module','Updated At'),
-            'fistname' => MainModule::t('module','Firstname'),
-            'lastname' => MainModule::t('module','Lastname'),
-            'username' => MainModule::t('module','Username'),
-            'email' => MainModule::t('module','Email'),
-            'status' => MainModule::t('module','Status'),
-            'date_from' => MainModule::t('module','Date From'),
-            'date_to' => MainModule::t('module','Date To')
+            'created_at' => MainModule::t('module', 'Created At'),
+            'updated_at' => MainModule::t('module', 'Updated At'),
+            'fistname' => MainModule::t('module', 'Firstname'),
+            'lastname' => MainModule::t('module', 'Lastname'),
+            'username' => MainModule::t('module', 'Username'),
+            'email' => MainModule::t('module', 'Email'),
+            'status' => MainModule::t('module', 'Status'),
+            'date_from' => MainModule::t('module', 'Date From'),
+            'date_to' => MainModule::t('module', 'Date To')
         ];
     }
 

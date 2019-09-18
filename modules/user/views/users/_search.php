@@ -2,10 +2,10 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use app\modules\main\Module as MainModule;
+use app\modules\user\Module as UserModule;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\main\models\UserSearch */
+/* @var $model app\modules\user\models\UserSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -39,8 +39,8 @@ use app\modules\main\Module as MainModule;
     <?php // echo $form->field($model, 'status')?>
 
     <div class="form-group">
-        <?= Html::submitButton(MainModule::t('module','Search'), ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton(MainModule::t('module','Reset'), ['class' => 'btn btn-outline-secondary']) ?>
+        <?= Html::submitButton(UserModule::t('module','Search'), ['class' => 'btn btn-primary']) ?>
+        <?= Html::resetButton(UserModule::t('module','Reset'), ['class' => 'btn btn-outline-secondary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

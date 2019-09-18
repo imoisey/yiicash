@@ -2,8 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use app\modules\main\Module as MainModule;
-use app\modules\main\models\User;
+use app\modules\user\Module as UserModule;
+use app\modules\user\models\backend\User;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\user\models\User */
@@ -29,7 +29,7 @@ use app\modules\main\models\User;
     <?= $form->field($model, 'newPasswordRepeat')->passwordInput(['maxlength' => true]) ?>
 
     <div class="form-group">
-        <?= Html::submitButton(MainModule::t('module','Save'), ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton(UserModule::t('module','Save'), ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

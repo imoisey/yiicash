@@ -2,13 +2,13 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-use app\modules\main\Module as MainModule;
+use app\modules\user\Module as UserModule;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\user\models\User */
 
 $this->title = "{$model->fullname}";
-$this->params['breadcrumbs'][] = ['label' => MainModule::t('module','Users'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => UserModule::t('module','Users'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -17,11 +17,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(MainModule::t('module','Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(MainModule::t('module','Delete'), ['delete', 'id' => $model->id], [
+        <?= Html::a(UserModule::t('module','Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(UserModule::t('module','Delete'), ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => MainModule::t('module','Are you sure you want to delete this item?'),
+                'confirm' => UserModule::t('module','Are you sure you want to delete this item?'),
                 'method' => 'post',
             ],
         ]) ?>

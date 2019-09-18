@@ -35,4 +35,11 @@ return [
     'New Password Repeat' => 'Новый пароль (еще раз)',
     'Current password is incorrect' => 'Текущий пароль не корректный',
     'Change Password' => 'Смена пароля',
+    'Users' => 'Пользователи',
+    'Create' => 'Добавить',
+    'Update' => 'Редактировать',
+    'Delete' => 'Удалить',
+    'Update: {name}' => 'Редактирование: {name}',
+    'Date From' => 'С',
+    'Date To' => 'По',
 ];

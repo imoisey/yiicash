@@ -19,7 +19,7 @@ $config = [
             'loginUrl' => ['login'],
         ],
         'errorHandler' => [
-            'errorAction' => 'main/default/error',
+            'errorAction' => 'main/events/error',
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

@@ -120,3 +120,48 @@ a.desc:after {
     letter-spacing: 0.1em;
     max-width: 7em;
 }
+
+.events-title {
+    margin-top:0;
+}
+
+ul.list-group.event-employee-list li {
+    padding-left: .8em;
+    padding-top: .6em;
+    padding-bottom: .6em;
+}
+
+ul.list-group.event-employee-list button {
+    margin-right: .3em;
+}
+
+.event-list {
+    margin-top: 1em;
+}
+
+.event-list .event-item .media-body {
+    background: #f0f0f0;
+    padding: 1em;
+    border-radius: .3em;
+}
+
+.event-list .event-operation {
+    font-weight: bold;
+    margin-bottom:0;
+}
+
+.event-list .event-operation-minus {
+    color: red;
+}
+
+.event-list .event-operation-plus {
+    color: green;
+}
+
+.help-block {
+    display: none;
+}
+
+.has-error .help-block {
+    display: block;
+}

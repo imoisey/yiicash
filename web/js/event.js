@@ -67,6 +67,8 @@
      */
     function addOperation(person)
     {
+        index++;
+
         var elementCode = _getTemplateAndReplace(person);
         $(defopt.operationListSelector).append(elementCode);
         $(document).trigger('operation-add');
@@ -80,7 +82,7 @@
     function _getTemplateAndReplace(person)
     {
         var replacement = {
-            "{index}": index++,
+            "{index}": index,
             "{employeeId}": person.id,
             "{employeeName}": person.name,
             "{amount}": person.amount,

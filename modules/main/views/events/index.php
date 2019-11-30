@@ -159,7 +159,7 @@ $this->title = Yii::$app->name;
                         <div class="form-group">
                             <label class="control-label" for="eventEmployee"><?= Module::t('module', 'Employeer')?></label>
 
-                            <?= Html::DropDownList('user_id', null, ArrayHelper::map(User::findAll(1), 'id', 'fullname'), [
+                            <?= Html::DropDownList('user_id', null, ArrayHelper::map(User::find()->active()->all(), 'id', 'fullname'), [
                                 'class' => 'form-control',
                                 'data-field-employee' => true,
                                 'required' => true
@@ -197,9 +197,9 @@ window.message = {
 
 <script id="EventFormModule-Template-Item" type="text/tpl">
 <li class="list-group-item" data-operation-item>
-    <input type="hidden" name="OperationForm[{index}]type" value="{type}">
-    <input type="hidden" name="OperationForm[{index}]amount" value="{amount}">
-    <input type="hidden" name="OperationForm[{index}]user_id" value="{employeeId}">
+    <input type="hidden" name="EventAddForm[operations][{index}][type]" value="{type}">
+    <input type="hidden" name="EventAddForm[operations][{index}][amount]" value="{amount}">
+    <input type="hidden" name="EventAddForm[operations][{index}][user_id]" value="{employeeId}">
     <button class="btn btn-xs btn-danger" data-operation-remove>
         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
     </button> 

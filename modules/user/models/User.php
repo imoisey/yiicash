@@ -29,12 +29,17 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     const STATUS_BLOCKED = 0;
     const STATUS_ACTIVE = 1;
 
+    public static function find()
+    {
+        return new UserQuery(get_called_class());
+    }
+
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'user';
+        return '{{%user}}';
     }
 
     public function behaviors()
@@ -90,15 +95,15 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return [
             'id' => 'ID',
-            'created_at' => UserModule::t('module','Create At'),
-            'updated_at' =>  UserModule::t('module','Update At'),
-            'fullname' =>  UserModule::t('module','Full Name'),
-            'username' =>  UserModule::t('module','Username'),
-            'firstname' =>  UserModule::t('module','Firstname'),
-            'lastname' =>  UserModule::t('module','Lastname'),
-            'email' =>  UserModule::t('module','Email'),
-            'status' => UserModule::t('module','Status Name'),
-            'statusname' =>  UserModule::t('module','Status Name'),
+            'created_at' => UserModule::t('module', 'Create At'),
+            'updated_at' =>  UserModule::t('module', 'Update At'),
+            'fullname' =>  UserModule::t('module', 'Full Name'),
+            'username' =>  UserModule::t('module', 'Username'),
+            'firstname' =>  UserModule::t('module', 'Firstname'),
+            'lastname' =>  UserModule::t('module', 'Lastname'),
+            'email' =>  UserModule::t('module', 'Email'),
+            'status' => UserModule::t('module', 'Status Name'),
+            'statusname' =>  UserModule::t('module', 'Status Name'),
         ];
     }
 

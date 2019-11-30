@@ -1,5 +1,6 @@
 <?php
 
+use app\modules\main\services\EventService;
 use yii\helpers\ArrayHelper;
 
 $params = ArrayHelper::merge(
@@ -65,5 +66,12 @@ return [
             ],
         ],
     ],
+    'container' => [
+		'singletons' => [
+			EventService::class => [
+				['class' => EventService::class]
+			],
+		],
+	],
     'params' => $params,
 ];

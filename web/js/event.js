@@ -5,9 +5,11 @@
         formSelector: "#eventAddForm",
         operationListSelector: ".event-operation-list",
         itemTplSelector: "#event-list-item",
+        operationAddSelector: ".operationAdd",
         operationRemoveSelector: "[data-operation-remove]",
         operationItemSelector: "[data-operation-item]",
-        operationMessageSelector: "[data-operation-message]"
+        operationMessageSelector: "[data-operation-message]",
+        messageNotOperaton: "Error. Operation not found."
     }
 
     // Поля формы
@@ -18,6 +20,8 @@
     }
 
     var validators = {}
+
+    var index = 0;
 
     /**
      * Конструктор
@@ -38,9 +42,11 @@
         $(document).on('submit', defopt.formSelector, onSubmit);
         $(defopt.formSelector + ' :required').on('invalid', onInvalid);
         $(defopt.formSelector + ' :required').on('focus', onFocus);
+        $(document).on('click', defopt.operationAddSelector, onAddOperation);
         $(document).on('click', defopt.operationRemoveSelector, onDeleteOperation);
         $(document).on('operation-delete', postDeleteOperationEvent);
         $(document).on('operation-add', postAddOperationEvent);
+
     }
 
     /**
@@ -74,6 +80,7 @@
     function _getTemplateAndReplace(person)
     {
         var replacement = {
+            "{index}": index++,
             "{employeeId}": person.id,
             "{employeeName}": person.name,
             "{amount}": person.amount,
@@ -158,7 +165,7 @@
      * 
      * @param {Event} e 
      */
-    function onSubmit(e)
+    function onAddOperation(e)
     {
         e.preventDefault();
 
@@ -191,6 +198,14 @@
         });
     }
 
+    function onSubmit(e)
+    {
+        if($(defopt.formSelector).find(defopt.operationItemSelector).length == 0) {
+            alert(defopt.messageNotOperaton);
+            return false;
+        }
+    }
+
     // Публичные методы
     self.addValidator = addValidator;
 
@@ -200,7 +215,8 @@
 EventFormModule({
     formSelector: "#eventAddForm",
     listSelector: ".event-employee-list",
-    itemTplSelector: "#EventFormModule-Template-Item"
+    itemTplSelector: "#EventFormModule-Template-Item",
+    messageNotOperaton: window.message.notOperation
 });
 
 EventFormModule.addValidator('amount', function(value){

@@ -25,9 +25,4 @@ class EventAddForm extends Model
             'content' => Module::t('module', 'Comment'),
         ];
     }
-
-    public function load($data, $formName = null)
-    {
-        
-    }
 }

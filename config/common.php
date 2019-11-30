@@ -36,6 +36,9 @@ return [
                 'users' => 'user/users/index',
                 'users/<_a:[\w\-]+>' => 'user/users/<_a>',
 
+                'events' => 'main/events/index',
+                'events/<_a:[\w\-]+>' => 'main/events/<_a>',
+
                 '<_m:[\w\-]+>' => '<_m>/events/index',
                 '<_m:[\w\-]+>/<id:\d+>' => '<_m>/events/view',
                 '<_m:[\w\-]+>/<id:\d+>/<_a:[\w\-]+>' => '<_m>/events/<_a>',

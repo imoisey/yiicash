@@ -20,5 +20,8 @@ return [
     'List Events' => 'Список событий',
     'Add Event' => 'Добавить событие',
     'Add bonus/penalty' => 'Выписать премию/штраф',
-    'Submit bonus/penalty' => 'Выписать'
+    'Submit bonus/penalty' => 'Выписать',
+    'Filter' => 'Фильтр',
+    'Period' => 'Период',
+    'Search' => 'Поиск',
 ];

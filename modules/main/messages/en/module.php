@@ -19,5 +19,8 @@ return [
     'List Events' => 'List events',
     'Add Event' => 'Add event',
     'Add bonus/penalty' => 'Add bonus/penalty',
-    'Submit bonus/penalty' => 'Submit bonus/penalty'
+    'Submit bonus/penalty' => 'Submit bonus/penalty',
+    'Filter' => 'Filter',
+    'Period' => 'Date period',
+    'Search' => 'Search'
 ];

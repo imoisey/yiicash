@@ -44,6 +44,8 @@ $this->title = Yii::$app->name;
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="list">
 
+            <?php include "_search.php" ?>
+
             <?php if ($provider->getCount() > 0): ?>
             <ul class="media-list event-list">
                 <?php foreach ($provider->getModels() as $event): ?>

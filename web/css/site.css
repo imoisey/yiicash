@@ -165,3 +165,7 @@ ul.list-group.event-employee-list button {
 .has-error .help-block {
     display: block;
 }
+
+.events-filter {
+    margin-top: 2rem;
+}

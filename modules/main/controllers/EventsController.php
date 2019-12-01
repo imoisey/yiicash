@@ -11,6 +11,7 @@ use app\modules\main\models\Cash;
 use app\modules\main\models\Event;
 use app\modules\main\services\EventService;
 use app\modules\main\forms\events\EventAddForm;
+use app\modules\main\forms\events\EventSearchForm;
 
 /**
  * Default controller for the `main` module
@@ -57,22 +58,14 @@ class EventsController extends Controller
     public function actionIndex()
     {
         $eventForm = new EventAddForm();
-        $eventQuery = Event::find();
+        $eventSearchForm = new EventSearchForm();
+        $eventSearchForm->load(Yii::$app->request->get());
 
-        $provider = new ActiveDataProvider([
-            'query' => $eventQuery,
-            'pagination' => [
-                'pageSize' => Yii::$app->params['event.pageSize'],
-            ],
-            'sort' => [
-                'defaultOrder' => [
-                    'created_at' => SORT_DESC,
-                ]
-            ]
-        ]);
+        $provider = $eventSearchForm->getDataProvider();
 
         return $this->render('index', [
             'eventForm' => $eventForm,
+            'modelEventSearch' => $eventSearchForm,
             'provider' => $provider,
             'cash' => $this->cash
         ]);

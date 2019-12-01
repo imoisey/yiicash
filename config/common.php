@@ -1,5 +1,6 @@
 <?php
 
+use app\modules\main\models\Cash;
 use app\modules\main\services\EventService;
 use yii\helpers\ArrayHelper;
 
@@ -77,7 +78,10 @@ return [
 		'singletons' => [
 			EventService::class => [
 				['class' => EventService::class]
-			],
+            ],
+            Cash::class => [
+                ['class' => Cash::class]
+            ]
 		],
 	],
     'params' => $params,

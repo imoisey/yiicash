@@ -20,6 +20,12 @@ $this->title = Yii::$app->name;
 <div class="main-default-index">
     <h3 class="events-title">Касса взаимопомощи. Премии и штрафы.</h3>
 
+    <h4 class="pull-right">
+        В кассе: 
+        <span class="label label-<?= $cash->getStatusAvailable() ?>"><?= $cash->getTotalAvailable() ?>р.</span>
+    </h4>
+    
+
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active">

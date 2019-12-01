@@ -4,26 +4,36 @@ namespace app\modules\main\controllers;
 
 use Yii;
 use yii\web\Controller;
+use yii\data\Pagination;
 use app\modules\main\Module;
+use yii\data\ActiveDataProvider;
+use app\modules\main\models\Cash;
 use app\modules\main\models\Event;
 use app\modules\main\services\EventService;
 use app\modules\main\forms\events\EventAddForm;
-use yii\data\ActiveDataProvider;
-use yii\data\Pagination;
 
 /**
  * Default controller for the `main` module
  */
 class EventsController extends Controller
 {
+    /** 
+     * @var EventService 
+     */
     private $eventService;
+
+    /**
+     * @var Cash
+     */
+    private $cash;
 
     /**
      * @param EventService $eventService
      */
-    public function __construct($id, $module, EventService $eventService, $config = [])
+    public function __construct($id, $module, EventService $eventService, Cash $cash, $config = [])
     {
         $this->eventService = $eventService;
+        $this->cash = $cash;
 
         parent::__construct($id, $module, $config);
     }
@@ -64,6 +74,7 @@ class EventsController extends Controller
         return $this->render('index', [
             'eventForm' => $eventForm,
             'provider' => $provider,
+            'cash' => $this->cash
         ]);
     }
 

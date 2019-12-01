@@ -15,4 +15,10 @@ return [
     'Error. Operation not found.' => 'Ошибка. Операции не найдены.',
     'Event successfully added' => 'Событие успешно добавлено.',
     'Event not added' => 'Ошибка! Событие не добавлено.',
+    'Mutual assistance cash desk. Bonuses and penalties.' => 'Касса взаимопомощи. Премии и штрафы.',
+    'Total' => 'В кассе',
+    'List Events' => 'Список событий',
+    'Add Event' => 'Добавить событие',
+    'Add bonus/penalty' => 'Выписать премию/штраф',
+    'Submit bonus/penalty' => 'Выписать'
 ];

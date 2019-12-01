@@ -18,10 +18,10 @@ EventAsset::register($this);
 $this->title = Yii::$app->name;
 ?>
 <div class="main-default-index">
-    <h3 class="events-title">Касса взаимопомощи. Премии и штрафы.</h3>
+    <h3 class="events-title"><?= Module::t('module', 'Mutual assistance cash desk. Bonuses and penalties.') ?></h3>
 
     <h4 class="pull-right">
-        В кассе: 
+        <?= Module::t('module', 'Total'); ?>: 
         <span class="label label-<?= $cash->getStatusAvailable() ?>"><?= $cash->getTotalAvailable() ?>р.</span>
     </h4>
     
@@ -30,12 +30,12 @@ $this->title = Yii::$app->name;
     <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active">
             <a href="#list" aria-controls="list" role="tab" data-toggle="tab">
-                <span class="glyphicon glyphicon-list"></span> Список событий
+                <span class="glyphicon glyphicon-list"></span> <?= Module::t('module', 'List Events')?>
             </a>
         </li>
         <li role="presentation">
             <a href="#add" aria-controls="add" role="tab" data-toggle="tab">
-                <span class="glyphicon glyphicon-plus"></span> Добавить событие
+                <span class="glyphicon glyphicon-plus"></span> <?= Module::t('module', 'Add Event') ?>
             </a>
         </li>
     </ul>
@@ -79,7 +79,7 @@ $this->title = Yii::$app->name;
         </div>
 
         <div role="tabpanel" class="tab-pane" id="add">
-            <h4>Выписать премию/штраф</h4>
+            <h4><?= Module::t('module', 'Add bonus/penalty') ?></h4>
             <div class="panel panel-default">
             <div class="panel-body" id="addEventBlock">
 
@@ -141,7 +141,7 @@ $this->title = Yii::$app->name;
                                 'rows' => 3
                             ]); ?>
                         </div>
-                        <button type="submit" class="btn btn-primary pull-right">Выписать</button>
+                        <button type="submit" class="btn btn-primary pull-right"><?= Module::t('module', 'Submit bonus/penalty') ?></button>
                     </div>
                 </div>
                 <?php ActiveForm::end(); ?>

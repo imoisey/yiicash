@@ -27,10 +27,10 @@ use yii\widgets\ActiveForm;
             <div class="col-sm-11">
             <?= DatePicker::widget([
                 'name' => 'from_date',
-                'value' => '01' . date(".m.Y"),
+                'value' => $modelEventSearch->from_date ?? '01' . date(".m.Y"),
                 'type' => DatePicker::TYPE_RANGE,
                 'name2' => 'to_date',
-                'value2' => date("d.m.Y"),
+                'value2' => $modelEventSearch->to_date ?? date("d.m.Y"),
                 'pluginOptions' => [
                     'autoclose' => true,
                     'format' => 'dd.mm.yyyy'

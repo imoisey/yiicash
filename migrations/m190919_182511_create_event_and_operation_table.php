@@ -14,7 +14,7 @@ class m190919_182511_create_event_and_operation_table extends Migration
     {
         $this->createTable('{{%event}}', [
             'id' => $this->primaryKey(),
-            'created_at' => $this->integer()->notNull(),
+            'created_at' => $this->timestamp()->defaultValue(null),
             'author_id' => $this->integer()->notNull(),
             'content' => $this->text()->notNull(),
             'total' => $this->integer()->notNull()

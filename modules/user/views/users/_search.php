@@ -39,8 +39,8 @@ use app\modules\user\Module as UserModule;
     <?php // echo $form->field($model, 'status')?>
 
     <div class="form-group">
-        <?= Html::submitButton(UserModule::t('module','Search'), ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton(UserModule::t('module','Reset'), ['class' => 'btn btn-outline-secondary']) ?>
+        <?= Html::submitButton(UserModule::t('module', 'Search'), ['class' => 'btn btn-primary']) ?>
+        <?= Html::resetButton(UserModule::t('module', 'Reset'), ['class' => 'btn btn-outline-secondary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

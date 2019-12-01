@@ -56,7 +56,7 @@ class PasswordResetForm extends Model
     public function attributeLabels()
     {
         return [
-            'password' => UserModule::t('module','Password'),
+            'password' => UserModule::t('module', 'Password'),
         ];
     }
 

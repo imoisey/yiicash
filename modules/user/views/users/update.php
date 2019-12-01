@@ -9,9 +9,9 @@ use app\modules\user\Module as UserModule;
 $this->title = UserModule::t('module', 'Update: {name}', [
     'name' => $model->fullname,
 ]);
-$this->params['breadcrumbs'][] = ['label' => UserModule::t('module','Users'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => UserModule::t('module', 'Users'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->fullname, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = UserModule::t('module','Update');
+$this->params['breadcrumbs'][] = UserModule::t('module', 'Update');
 ?>
 <div class="user-update">
 

@@ -22,12 +22,12 @@ class m190919_182511_create_event_and_operation_table extends Migration
 
         $this->createIndex('idx-event-author_id', '{{%event}}', 'author_id');
         $this->addForeignKey(
-            'fk-event-author_id', 
-            '{{%event}}', 
-            'author_id', 
-            '{{%user}}', 
-            'id', 
-            'CASCADE', 
+            'fk-event-author_id',
+            '{{%event}}',
+            'author_id',
+            '{{%user}}',
+            'id',
+            'CASCADE',
             'CASCADE'
         );
 
@@ -39,28 +39,28 @@ class m190919_182511_create_event_and_operation_table extends Migration
         ]);
 
         $this->createIndex(
-            'idx-operation-event_id-user_id', 
+            'idx-operation-event_id-user_id',
             '{{%operation}}',
             ['event_id', 'user_id']
         );
 
         $this->addForeignKey(
-            'fk-operation-event_id', 
-            '{{%operation}}', 
-            'event_id', 
-            '{{%event}}', 
-            'id', 
-            'CASCADE', 
+            'fk-operation-event_id',
+            '{{%operation}}',
+            'event_id',
+            '{{%event}}',
+            'id',
+            'CASCADE',
             'CASCADE'
         );
 
         $this->addForeignKey(
-            'fk-operation-user_id', 
-            '{{%operation}}', 
-            'user_id', 
-            '{{%user}}', 
-            'id', 
-            'CASCADE', 
+            'fk-operation-user_id',
+            '{{%operation}}',
+            'user_id',
+            '{{%user}}',
+            'id',
+            'CASCADE',
             'CASCADE'
         );
     }

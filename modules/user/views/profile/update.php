@@ -8,8 +8,8 @@ use app\modules\user\Module as UserModule;
 /* @var $this yii\web\View */
 /* @var $model app\modules\user\models\User */
  
-$this->title = UserModule::t('module','Editing');
-$this->params['breadcrumbs'][] = ['label' => UserModule::t('module','Profile'), 'url' => 'index'];
+$this->title = UserModule::t('module', 'Editing');
+$this->params['breadcrumbs'][] = ['label' => UserModule::t('module', 'Profile'), 'url' => 'index'];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-profile">
@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= $form->field($model, 'email')->input('email', ['maxlength' => true]) ?>
     
     <div class="form-group">
-        <?= Html::submitButton(UserModule::t('module','Save'), ['class' => 'btn btn-primary']) ?>
+        <?= Html::submitButton(UserModule::t('module', 'Save'), ['class' => 'btn btn-primary']) ?>
     </div>
     
     <?php ActiveForm::end(); ?>

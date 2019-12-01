@@ -13,7 +13,7 @@ use app\components\grid\ActionColumn;
 /* @var $searchModel app\modules\main\models\UserSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = UserModule::t('module','Users');
+$this->title = UserModule::t('module', 'Users');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-index">
@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(UserModule::t('module','Create'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(UserModule::t('module', 'Create'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]);?>

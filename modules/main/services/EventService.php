@@ -17,11 +17,11 @@ class EventService
         $event = Event::create($authorId, $eventForm->content, $total);
         $event->save();
 
-        foreach($eventForm->operations as $operationItem) {
+        foreach ($eventForm->operations as $operationItem) {
             $operation = Operation::create(
-                $event->id, 
-                $operationItem['user_id'], 
-                $operationItem['type'], 
+                $event->id,
+                $operationItem['user_id'],
+                $operationItem['type'],
                 $operationItem['amount']
             );
             $operation->save();

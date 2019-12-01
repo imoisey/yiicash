@@ -242,7 +242,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     public function getGravatar($d = 'identicon')
     {
         return sprintf(
-            "https://www.gravatar.com/avatar/%s?d=%s", 
+            "https://www.gravatar.com/avatar/%s?d=%s",
             md5(strtolower($this->email)),
             $d
         );

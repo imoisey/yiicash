@@ -11,9 +11,9 @@ class Cash
 
     public function getTotalAvailable()
     {
-        if($this->total == null) {
+        if ($this->total == null) {
             $this->total = Yii::$app->db->createCommand(
-            "SELECT SUM(IF(type = '-', amount, - amount)) as totalSum FROM {{%operation}}"
+                "SELECT SUM(IF(type = '-', amount, - amount)) as totalSum FROM {{%operation}}"
             )->queryScalar();
         }
 

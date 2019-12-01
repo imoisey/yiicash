@@ -75,14 +75,14 @@ return [
        ],
     ],
     'container' => [
-		'singletons' => [
-			EventService::class => [
-				['class' => EventService::class]
+        'singletons' => [
+            EventService::class => [
+                ['class' => EventService::class]
             ],
             Cash::class => [
                 ['class' => Cash::class]
             ]
-		],
-	],
+        ],
+    ],
     'params' => $params,
 ];

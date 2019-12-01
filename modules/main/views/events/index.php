@@ -44,9 +44,9 @@ $this->title = Yii::$app->name;
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="list">
 
-            <?php if($provider->getCount() > 0): ?>
+            <?php if ($provider->getCount() > 0): ?>
             <ul class="media-list event-list">
-                <?php foreach($provider->getModels() as $event): ?>
+                <?php foreach ($provider->getModels() as $event): ?>
                     <li class="media event-item" id="item<?= $event->id ?>">
                         <div class="media-left">
                             <img class="media-object img-circle" src="<?= $event->author->getGravatar()?>" alt="<?= $event->author->fullName ?>">
@@ -59,7 +59,7 @@ $this->title = Yii::$app->name;
                             <p><?= $event->content ?></p>
 
                             <ul class="list-group event-operation">
-                            <?php foreach($event->operations as $operation): ?>
+                            <?php foreach ($event->operations as $operation): ?>
                                 <li class="list-group-item <?= $operation->type == Operation::TYPE_MINUS ? 'event-operation-minus' : 'event-operation-plus'?>">
                                     <?= $operation->type ?><?= $operation->amount ?>р., <?= $operation->employeer->fullname ?>
                                 </li>

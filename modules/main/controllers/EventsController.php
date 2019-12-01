@@ -17,8 +17,8 @@ use app\modules\main\forms\events\EventAddForm;
  */
 class EventsController extends Controller
 {
-    /** 
-     * @var EventService 
+    /**
+     * @var EventService
      */
     private $eventService;
 
@@ -83,7 +83,7 @@ class EventsController extends Controller
         $eventForm = new EventAddForm();
         $eventForm->load(Yii::$app->request->post());
 
-        if($eventForm->load(Yii::$app->request->post()) && $eventForm->validate()) {
+        if ($eventForm->load(Yii::$app->request->post()) && $eventForm->validate()) {
             $this->eventService->add($eventForm);
             Yii::$app->session->setFlash("success", Module::t('module', 'Event successfully added'));
             return $this->redirect('index');

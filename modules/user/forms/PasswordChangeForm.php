@@ -42,9 +42,9 @@ class PasswordChangeForm extends Model
     public function attributeLabels()
     {
         return [
-            'currentPassword' => UserModule::t('module','Current Password'),
-            'newPassword' => UserModule::t('module','New Password'),
-            'newPasswordRepeat' => UserModule::t('module','New Password Repeat'),
+            'currentPassword' => UserModule::t('module', 'Current Password'),
+            'newPassword' => UserModule::t('module', 'New Password'),
+            'newPasswordRepeat' => UserModule::t('module', 'New Password Repeat'),
         ];
     }
 
@@ -56,7 +56,7 @@ class PasswordChangeForm extends Model
     {
         if (!$this->hasErrors()) {
             if (!$this->user->validatePassword($this->$attribute)) {
-                $this->addError($attribute, UserModule::t('module','Current password is incorrect'));
+                $this->addError($attribute, UserModule::t('module', 'Current password is incorrect'));
             }
         }
     }

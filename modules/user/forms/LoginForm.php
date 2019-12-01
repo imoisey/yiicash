@@ -39,9 +39,9 @@ class LoginForm extends Model
     public function attributeLabels()
     {
         return [
-            'username' => UserModule::t('module','Username'),
-            'password' => UserModule::t('module','Password'),
-            'rememberMe' => UserModule::t('module','Remember me'),
+            'username' => UserModule::t('module', 'Username'),
+            'password' => UserModule::t('module', 'Password'),
+            'rememberMe' => UserModule::t('module', 'Remember me'),
         ];
     }
 
@@ -58,9 +58,9 @@ class LoginForm extends Model
             $user = $this->getUser();
 
             if (!$user || !$user->validatePassword($this->password)) {
-                $this->addError($attribute, UserModule::t('module','Incorrect username or password.'));
+                $this->addError($attribute, UserModule::t('module', 'Incorrect username or password.'));
             } elseif ($user && $user->status === User::STATUS_BLOCKED) {
-                $this->addError('username', UserModule::t('module','Your account is blocked.'));
+                $this->addError('username', UserModule::t('module', 'Your account is blocked.'));
             }
         }
     }

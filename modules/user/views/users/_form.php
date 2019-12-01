@@ -29,7 +29,7 @@ use app\modules\user\models\backend\User;
     <?= $form->field($model, 'newPasswordRepeat')->passwordInput(['maxlength' => true]) ?>
 
     <div class="form-group">
-        <?= Html::submitButton(UserModule::t('module','Save'), ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton(UserModule::t('module', 'Save'), ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

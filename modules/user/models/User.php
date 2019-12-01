@@ -234,6 +234,21 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     }
 
     /**
+     * Возвращет ссылку на граватор
+     *
+     * @param string $d
+     * @return string
+     */
+    public function getGravatar($d = 'identicon')
+    {
+        return sprintf(
+            "https://www.gravatar.com/avatar/%s?d=%s", 
+            md5(strtolower($this->email)),
+            $d
+        );
+    }
+
+    /**
      * {@inheritdoc}
      */
     public static function findIdentity($id)

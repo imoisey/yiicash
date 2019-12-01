@@ -47,8 +47,9 @@ $this->title = Yii::$app->name;
                             <a href="#item<?= $event->id ?>" class="text-center center-block">#<?= $event->id ?></a>
                         </div>
                         <div class="media-body">
+                            <span class="label label-default pull-right"><?= $event->total ?>р.</span>
                             <h5 class="media-heading"><?= $event->author->fullName ?></h5>
-                            <p class="small"><?= $event->created_at?></p>
+                            <p class="small"><?= Yii::$app->formatter->asDatetime($event->created_at)?></p>
                             <p><?= $event->content ?></p>
 
                             <ul class="list-group event-operation">

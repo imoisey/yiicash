@@ -65,6 +65,13 @@ return [
                 ],
             ],
         ],
+        'formatter' => [
+            'dateFormat' => 'dd.MM.yyyy',
+            'datetimeFormat' => 'dd.MM.yyyy H:m',
+            'decimalSeparator' => ',',
+            'thousandSeparator' => ' ',
+            'currencyCode' => 'RUB',
+       ],
     ],
     'container' => [
 		'singletons' => [

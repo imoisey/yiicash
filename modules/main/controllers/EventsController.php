@@ -4,9 +4,12 @@ namespace app\modules\main\controllers;
 
 use Yii;
 use yii\web\Controller;
-use app\modules\main\forms\events\EventAddForm;
-use app\modules\main\services\EventService;
 use app\modules\main\Module;
+use app\modules\main\models\Event;
+use app\modules\main\services\EventService;
+use app\modules\main\forms\events\EventAddForm;
+use yii\data\ActiveDataProvider;
+use yii\data\Pagination;
 
 /**
  * Default controller for the `main` module
@@ -44,9 +47,23 @@ class EventsController extends Controller
     public function actionIndex()
     {
         $eventForm = new EventAddForm();
+        $eventQuery = Event::find();
+
+        $provider = new ActiveDataProvider([
+            'query' => $eventQuery,
+            'pagination' => [
+                'pageSize' => Yii::$app->params['event.pageSize'],
+            ],
+            'sort' => [
+                'defaultOrder' => [
+                    'created_at' => SORT_DESC,
+                ]
+            ]
+        ]);
 
         return $this->render('index', [
             'eventForm' => $eventForm,
+            'provider' => $provider,
         ]);
     }
 

@@ -3,6 +3,8 @@
 namespace app\modules\main\models;
 
 use yii\db\ActiveRecord;
+use app\modules\user\models\User;
+use app\modules\main\models\Event;
 
 class Operation extends ActiveRecord
 {
@@ -26,11 +28,11 @@ class Operation extends ActiveRecord
 
     public function getEvent()
     {
-        $this->hasOne(Event::className(), ['id' => 'event_id']);
+        return $this->hasOne(Event::className(), ['id' => 'event_id']);
     }
 
     public function getEmployeer()
     {
-        $this->hasOne(User::className(), ['id' => 'user_id']);
+        return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
 }

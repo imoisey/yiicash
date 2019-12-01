@@ -5,11 +5,13 @@
 use yii\helpers\Url;
 use yii\helpers\Html;
 use app\assets\EventAsset;
+use yii\widgets\LinkPager;
 use yii\widgets\ActiveForm;
 use app\modules\main\Module;
 use yii\helpers\ArrayHelper;
 use app\modules\user\models\User;
 use app\components\grid\ActionColumn;
+use app\modules\main\models\Operation;
 
 EventAsset::register($this);
 
@@ -35,84 +37,37 @@ $this->title = Yii::$app->name;
     <!-- Tab panes -->
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="list">
+
+            <?php if($provider->getCount() > 0): ?>
             <ul class="media-list event-list">
-                <li class="media event-item">
-                    <div class="media-left">
-                        <img class="media-object img-circle" src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?d=identicon" alt="...">
-                        <a href="#" class="text-center center-block">#110</a>
-                    </div>
-                    <div class="media-body">
-                        <h5 class="media-heading">Игорь Моисеев</h5>
-                        <p class="small">23.09.2019 в 14:55</p>
-                        <p>Затягивание. https://stena.worksection.com/project/56305/518836/9354575/</p>
-                        <ul class="list-group event-operation">
-                            <li class="list-group-item event-operation-minus">
-                                -100р., Мельников Никита
-                            </li>
-                            <li class="list-group-item event-operation-plus">
-                                +100р., Мельников Никита
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="media event-item">
-                    <div class="media-left">
-                        <img class="media-object img-circle" src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?d=identicon" alt="...">
-                        <a href="#" class="text-center center-block">#110</a>
-                    </div>
-                    <div class="media-body">
-                        <h5 class="media-heading">Игорь Моисеев</h5>
-                        <p class="small">23.09.2019 в 14:55</p>
-                        <p>Затягивание. https://stena.worksection.com/project/56305/518836/9354575/</p>
-                        <ul class="list-group event-operation">
-                            <li class="list-group-item event-operation-minus">
-                                -100р., Мельников Никита
-                            </li>
-                            <li class="list-group-item event-operation-plus">
-                                +100р., Мельников Никита
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="media event-item">
-                    <div class="media-left">
-                        <img class="media-object img-circle" src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?d=identicon" alt="...">
-                        <a href="#" class="text-center center-block">#110</a>
-                    </div>
-                    <div class="media-body">
-                        <h5 class="media-heading">Игорь Моисеев</h5>
-                        <p class="small">23.09.2019 в 14:55</p>
-                        <p>Затягивание. https://stena.worksection.com/project/56305/518836/9354575/</p>
-                        <ul class="list-group event-operation">
-                            <li class="list-group-item event-operation-minus">
-                                -100р., Мельников Никита
-                            </li>
-                            <li class="list-group-item event-operation-plus">
-                                +100р., Мельников Никита
-                            </li>
-                        </ul>
-                    </div>
-                </li>
+                <?php foreach($provider->getModels() as $event): ?>
+                    <li class="media event-item" id="item<?= $event->id ?>">
+                        <div class="media-left">
+                            <img class="media-object img-circle" src="<?= $event->author->getGravatar()?>" alt="<?= $event->author->fullName ?>">
+                            <a href="#item<?= $event->id ?>" class="text-center center-block">#<?= $event->id ?></a>
+                        </div>
+                        <div class="media-body">
+                            <h5 class="media-heading"><?= $event->author->fullName ?></h5>
+                            <p class="small"><?= $event->created_at?></p>
+                            <p><?= $event->content ?></p>
+
+                            <ul class="list-group event-operation">
+                            <?php foreach($event->operations as $operation): ?>
+                                <li class="list-group-item <?= $operation->type == Operation::TYPE_MINUS ? 'event-operation-minus' : 'event-operation-plus'?>">
+                                    <?= $operation->type ?><?= $operation->amount ?>р., <?= $operation->employeer->fullname ?>
+                                </li>
+                            <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    </li>
+                <?php endforeach; ?>
             </ul>
+            <?php endif; ?>
 
             <nav aria-label="Page navigation" class="text-center">
-            <ul class="pagination">
-                <li>
-                <a href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-                </li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li>
-                <a href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-                </li>
-            </ul>
+            <?= LinkPager::widget([
+                'pagination' => $provider->getPagination(),
+            ]); ?>
             </nav>
         </div>
 

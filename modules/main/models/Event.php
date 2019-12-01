@@ -4,7 +4,9 @@ namespace app\modules\main\models;
 
 use yii\db\Expression;
 use yii\db\ActiveRecord;
+use app\modules\user\models\User;
 use yii\behaviors\TimestampBehavior;
+use app\modules\main\models\Operation;
 
 class Event extends ActiveRecord
 {
@@ -36,11 +38,11 @@ class Event extends ActiveRecord
 
     public function getOperations()
     {
-        $this->hasMany(Operation::className(), ['event_id' => 'id']);
+        return $this->hasMany(Operation::className(), ['event_id' => 'id']);
     }
 
     public function getAuthor()
     {
-        $this->hasOne(User::className(), ['user_id' => 'id']);
+        return $this->hasOne(User::className(), ['id' => 'author_id']);
     }
 }

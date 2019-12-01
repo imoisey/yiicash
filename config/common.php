@@ -67,6 +67,7 @@ return [
             ],
         ],
         'formatter' => [
+            'timeZone' => 'Europe/Moscow',
             'dateFormat' => 'dd.MM.yyyy',
             'datetimeFormat' => 'dd.MM.yyyy H:m',
             'decimalSeparator' => ',',

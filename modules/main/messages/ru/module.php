@@ -25,5 +25,6 @@ return [
     'Period' => 'Период',
     'Search' => 'Поиск',
     'Select Employeer' => 'Выберите сотрудника',
-    'Events not found.' => 'События не найдены'
+    'Events not found.' => 'События не найдены.',
+    'Clear' => 'Сбросить'
 ];

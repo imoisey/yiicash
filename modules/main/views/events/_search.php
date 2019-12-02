@@ -1,11 +1,12 @@
 <?php
 
+use yii\helpers\Url;
 use yii\helpers\Html;
 use kartik\date\DatePicker;
+use yii\widgets\ActiveForm;
 use app\modules\main\Module;
 use yii\helpers\ArrayHelper;
 use app\modules\user\models\User;
-use yii\widgets\ActiveForm;
 
 ?>
 <div class="panel panel-default events-filter">
@@ -55,6 +56,11 @@ use yii\widgets\ActiveForm;
 
         <?= Html::submitButton(Module::t('module', 'Search'), [
             'class' => 'btn btn-primary pull-right'
+        ]) ?>
+
+        <?= Html::a(Module::t('module', 'Clear'), ['events/index'], [
+            'class' => 'btn btn-default pull-right',
+            'style' => 'margin-right: 1em',
         ]) ?>
 
     <?php ActiveForm::end() ?>

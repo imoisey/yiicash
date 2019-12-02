@@ -24,5 +24,6 @@ return [
     'Period' => 'Date period',
     'Search' => 'Search',
     'Select Employeer' => 'Select Employeer',
-    'Events not found.' => 'Events not found.'
+    'Events not found.' => 'Events not found.',
+    'Clear' => 'Clear',
 ];

@@ -46,7 +46,8 @@ use yii\widgets\ActiveForm;
                         'tag' => false
                     ]
                 ])->dropDownList($modelEventSearch->getEmployeerList(), [
-                        'class' => 'form-control'
+                        'class' => 'form-control',
+                        'prompt' => Module::t('module', 'Select Employeer')
                     ]
                 )->label(false)?>
             </div>

@@ -2,8 +2,10 @@
 
 /* @var $this yii\web\View */
 
+use Yii;
 use yii\helpers\Url;
 use yii\helpers\Html;
+use yii\bootstrap\Alert;
 use app\assets\EventAsset;
 use yii\widgets\LinkPager;
 use yii\widgets\ActiveForm;
@@ -71,6 +73,15 @@ $this->title = Yii::$app->name;
                     </li>
                 <?php endforeach; ?>
             </ul>
+            <?php else : ?>
+                <?= Alert::widget([
+                        'options' => [
+                            'class' => 'alert-info',
+                        ],
+                        'body' => Module::t('module', 'Events not found.'),
+                        'closeButton' => false
+                    ]); 
+                ?>
             <?php endif; ?>
 
             <nav aria-label="Page navigation" class="text-center">

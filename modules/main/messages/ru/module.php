@@ -24,4 +24,6 @@ return [
     'Filter' => 'Фильтр',
     'Period' => 'Период',
     'Search' => 'Поиск',
+    'Select Employeer' => 'Выберите сотрудника',
+    'Events not found.' => 'События не найдены'
 ];

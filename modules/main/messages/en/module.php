@@ -22,5 +22,7 @@ return [
     'Submit bonus/penalty' => 'Submit bonus/penalty',
     'Filter' => 'Filter',
     'Period' => 'Date period',
-    'Search' => 'Search'
+    'Search' => 'Search',
+    'Select Employeer' => 'Select Employeer',
+    'Events not found.' => 'Events not found.'
 ];

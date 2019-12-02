@@ -41,11 +41,11 @@ class EventSearchForm extends Model
         $eventQuery = Event::find();
 
         if($this->from_date) {
-            $eventQuery->andFilterWhere(['>=', 'created_at', Yii::$app->formatter->asDatetime($this->from_date, 'php:Y-m-d')]);
+            $eventQuery->andFilterWhere(['>=', 'created_at', Yii::$app->formatter->asDatetime($this->from_date, 'php:Y-m-d 00:00:00')]);
         }
 
         if($this->to_date) {
-            $eventQuery->andFilterWhere(['<=', 'created_at', Yii::$app->formatter->asDatetime($this->to_date, 'php:Y-m-d')]);
+            $eventQuery->andFilterWhere(['<=', 'created_at', Yii::$app->formatter->asDatetime($this->to_date, 'php:Y-m-d 23:59:59')]);
         }
 
         if($this->employeer_id) {

@@ -139,7 +139,10 @@
      */
     function clearForm()
     {
-        $(defopt.formSelector).get(0).reset();
+        //$(defopt.formSelector).get(0).reset();
+        $(defopt.formSelector).find('input').val(function(){
+            return this.defaultValue;
+        });
     }
 
     /**

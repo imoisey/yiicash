@@ -26,5 +26,12 @@ return [
     'Search' => 'Поиск',
     'Select Employeer' => 'Выберите сотрудника',
     'Events not found.' => 'События не найдены.',
-    'Clear' => 'Сбросить'
+    'Clear' => 'Сбросить',
+    'Reports' => 'Отчет',
+    'User Id' => 'Id Пользователь',
+    'Fullname' => 'Полное имя',
+    'Total' => 'Сумма',
+    'Period from to' => 'Период с <b>{from_date}</b> по <b>{to_date}</b>',
+    'Submit' => 'Cформировать',
+    'Specify the period for generating the report' => 'Укажите период для формирования отчета.'
 ];

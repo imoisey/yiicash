@@ -44,6 +44,7 @@ AppAsset::register($this);
     } else {
         $navItems = [
             ['label' => Yii::t('app', 'Home'), 'url' => ['/main/events/index']],
+            ['label' => Yii::t('app', 'Report'), 'url' => ['/main/reports/index']],
             ['label' => UserModule::t('module', 'Users'), 'url' => ['/user/users/index']],
             [
                 'label' => Yii::$app->user->identity->getFullName(),

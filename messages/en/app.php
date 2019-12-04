@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'Home' => 'Home',
-    'Contact' => 'Contact',
+    'Home' => 'Events',
+    'Report' => 'Report',
 ];

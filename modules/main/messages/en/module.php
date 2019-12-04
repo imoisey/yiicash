@@ -26,4 +26,11 @@ return [
     'Select Employeer' => 'Select Employeer',
     'Events not found.' => 'Events not found.',
     'Clear' => 'Clear',
+    'Reports' => 'Reports',
+    'User Id' => 'User Id',
+    'Fullname' => 'Fullname',
+    'Total' => 'Total',
+    'Period from to' => 'Period {from_date} to {to_date}',
+    'Submit' => 'Submit',
+    'Specify the period for generating the report' => 'Specify the period for generating the report.'
 ];

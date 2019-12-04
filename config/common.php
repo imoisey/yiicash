@@ -41,6 +41,8 @@ return [
                 'events' => 'main/events/index',
                 'events/<_a:[\w\-]+>' => 'main/events/<_a>',
 
+                'reports' => 'main/reports/index',
+
                 '<_m:[\w\-]+>' => '<_m>/events/index',
                 '<_m:[\w\-]+>/<id:\d+>' => '<_m>/events/view',
                 '<_m:[\w\-]+>/<id:\d+>/<_a:[\w\-]+>' => '<_m>/events/<_a>',

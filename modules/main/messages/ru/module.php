@@ -33,5 +33,9 @@ return [
     'Total' => 'Сумма',
     'Period from to' => 'Период с <b>{from_date}</b> по <b>{to_date}</b>',
     'Submit' => 'Cформировать',
-    'Specify the period for generating the report' => 'Укажите период для формирования отчета.'
+    'Specify the period for generating the report' => 'Укажите период для формирования отчета.',
+    'Limits' => 'Лимиты',
+    'Award' => 'Премия',
+    'Save' => 'Сохранить',
+    'Limits successfully added' => 'Лимиты успешно обновлены'
 ];

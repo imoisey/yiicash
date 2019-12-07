@@ -11,6 +11,7 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\modules\user\components\UserMenu;
 use app\modules\user\Module as UserModule;
+use app\modules\main\Module as MainModule;
 
 AppAsset::register($this);
 ?>
@@ -46,6 +47,7 @@ AppAsset::register($this);
         $navItems = [
             ['label' => Yii::t('app', 'Home'), 'url' => ['/main/events/index']],
             ['label' => Yii::t('app', 'Report'), 'url' => ['/main/reports/index']],
+            ['label' => MainModule::t('module', 'Limits'), 'url' => ['/main/limits/index']],
             ['label' => UserModule::t('module', 'Users'), 'url' => ['/user/users/index']],
             [
                 'label' => Yii::$app->user->identity->getFullName(),

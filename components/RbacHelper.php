@@ -52,6 +52,11 @@ class RbacHelper extends Component
                 'allow' => [User::ROLE_EMPLOYEER],
             ],
 
+            'main/limits/index' => [
+                'description' => 'Лимиты / Редактирование',
+                'allow' => []
+            ],
+
             'user/profile/index' => [
                 'description' => 'Профиль / Просмотр',
                 'allow' => [User::ROLE_EMPLOYEER],

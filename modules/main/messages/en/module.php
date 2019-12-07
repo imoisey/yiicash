@@ -32,5 +32,9 @@ return [
     'Total' => 'Total',
     'Period from to' => 'Period {from_date} to {to_date}',
     'Submit' => 'Submit',
-    'Specify the period for generating the report' => 'Specify the period for generating the report.'
+    'Specify the period for generating the report' => 'Specify the period for generating the report.',
+    'Limits' => 'Limits',
+    'Award' => 'Award',
+    'Save' => 'Save',
+    'Limits successfully added' => 'Limits successfully added'
 ];

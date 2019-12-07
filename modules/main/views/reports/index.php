@@ -7,10 +7,11 @@ use yii\grid\GridView;
 use yii\bootstrap\Alert;
 use app\modules\main\Module;
 
-$this->title = Yii::$app->name;
+$this->title = Module::t('module', 'Reports');
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="main-reports-index">
-    <h3 class="events-title"><?= Module::t('module', 'Reports') ?></h3>
+    <h1 class="events-title"><?= $this->title ?></h1>
 
     <?php include "_search.php" ?>
 

@@ -12,6 +12,7 @@ return [
             'main/events/create',
             'main/events/index',
             'main/reports/index',
+            'main/limits/index',
             'user/profile/index',
             'user/profile/update',
             'user/profile/password-change',
@@ -62,6 +63,10 @@ return [
     'main/reports/index' => [
         'type' => 2,
         'description' => 'Отчет / Просмотр',
+    ],
+    'main/limits/index' => [
+        'type' => 2,
+        'description' => 'Лимиты / Редактирование',
     ],
     'user/profile/index' => [
         'type' => 2,

@@ -5,7 +5,6 @@ return [
     ],
     2 => [
         'employeer',
-        'admin',
     ],
     3 => [
         'employeer',

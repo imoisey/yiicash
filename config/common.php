@@ -2,6 +2,7 @@
 
 use app\modules\main\models\Cash;
 use app\modules\main\services\EventService;
+use app\modules\main\services\LimitService;
 use yii\helpers\ArrayHelper;
 
 $params = ArrayHelper::merge(
@@ -45,6 +46,7 @@ return [
                 'events/<_a:[\w\-]+>' => 'main/events/<_a>',
 
                 'reports' => 'main/reports/index',
+                'limits' => 'main/limits/index',
 
                 '<_m:[\w\-]+>' => '<_m>/events/index',
                 '<_m:[\w\-]+>/<id:\d+>' => '<_m>/events/view',
@@ -84,6 +86,9 @@ return [
         'singletons' => [
             EventService::class => [
                 ['class' => EventService::class]
+            ],
+            LimitService::class => [
+                ['class' => LimitService::class]
             ],
             Cash::class => [
                 ['class' => Cash::class]

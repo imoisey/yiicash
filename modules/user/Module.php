@@ -4,6 +4,7 @@ namespace app\modules\user;
 
 use Yii;
 use yii\filters\AccessControl;
+use app\modules\user\models\User;
 
 /**
  * user module definition class

@@ -26,6 +26,9 @@ return [
             'class' => 'yii\db\Connection',
             'charset' => 'utf8',
         ],
+        'authManager' => [
+            'class' => 'yii\rbac\PhpManager'
+        ],
         'urlManager' => [
             'class' => 'yii\web\UrlManager',
             'enablePrettyUrl' => true,

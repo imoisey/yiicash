@@ -34,6 +34,7 @@ return [
     'Current Password' => 'Current Password',
     'New Password' => 'New Password',
     'New Password Repeat' => 'New Password Repeat',
+    'Role Name' => 'Role Name',
     'Current password is incorrect' => 'Current password is incorrect',
     'Change Password' => 'Change Password',
     'Users' => 'Users',

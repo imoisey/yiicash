@@ -29,6 +29,9 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     const STATUS_BLOCKED = 0;
     const STATUS_ACTIVE = 1;
 
+    const ROLE_ADMIN = 'admin';
+    const ROLE_EMPLOYEER = 'employeer';
+
     public static function find()
     {
         return new UserQuery(get_called_class());
@@ -85,6 +88,10 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => array_keys(self::getStatusesArray())],
 
+            ['role', 'string'],
+            ['role', 'default', 'value' => self::ROLE_EMPLOYEER],
+            ['role', 'in', 'range' => array_keys(self::getRolesArray())]
+
         ];
     }
 
@@ -104,12 +111,18 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
             'email' =>  UserModule::t('module', 'Email'),
             'status' => UserModule::t('module', 'Status Name'),
             'statusname' =>  UserModule::t('module', 'Status Name'),
+            'role' => UserModule::t('module', 'Role Name'),
         ];
     }
 
     public function getFullName()
     {
         return "{$this->firstname} {$this->lastname}";
+    }
+
+    public function getRoleName()
+    {
+        return self::getRolesArray()[$this->role];
     }
 
     /**
@@ -230,6 +243,14 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         return [
             self::STATUS_BLOCKED => 'Заблокирован',
             self::STATUS_ACTIVE => 'Активен'
+        ];
+    }
+
+    public static function getRolesArray()
+    {
+        return [
+            self::ROLE_ADMIN => 'Администратор',
+            self::ROLE_EMPLOYEER => 'Сотрудник',
         ];
     }
 

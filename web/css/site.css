@@ -169,3 +169,7 @@ ul.list-group.event-employee-list button {
 .events-filter {
     margin-top: 2rem;
 }
+
+.radiolist label {
+    display: block;
+}

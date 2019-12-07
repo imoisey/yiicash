@@ -33,6 +33,7 @@ return [
     'Current Password' => 'Текущий пароль',
     'New Password' => 'Новый пароль',
     'New Password Repeat' => 'Новый пароль (еще раз)',
+    'Role Name' => 'Роль',
     'Current password is incorrect' => 'Текущий пароль не корректный',
     'Change Password' => 'Смена пароля',
     'Users' => 'Пользователи',

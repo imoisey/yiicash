@@ -28,6 +28,10 @@ use app\modules\user\models\backend\User;
 
     <?= $form->field($model, 'newPasswordRepeat')->passwordInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'role')->radioList($model->getRolesArray(), [
+        'class' => 'radiolist'
+    ]) ?>
+
     <div class="form-group">
         <?= Html::submitButton(UserModule::t('module', 'Save'), ['class' => 'btn btn-success']) ?>
     </div>

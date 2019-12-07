@@ -3,12 +3,13 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-use app\widgets\Alert;
 use yii\helpers\Html;
+use app\widgets\Alert;
 use yii\bootstrap\Nav;
+use app\assets\AppAsset;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
-use app\assets\AppAsset;
+use app\modules\user\components\UserMenu;
 use app\modules\user\Module as UserModule;
 
 AppAsset::register($this);
@@ -66,7 +67,7 @@ AppAsset::register($this);
         ];
     }
 
-    echo Nav::widget([
+    echo UserMenu::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'encodeLabels' => false,
         'items' => $navItems,

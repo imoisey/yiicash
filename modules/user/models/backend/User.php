@@ -34,7 +34,8 @@ class User extends \app\modules\user\models\User
             'email',
             'status',
             'newPassword',
-            'newPasswordRepeat'
+            'newPasswordRepeat',
+            'role',
         ];
 
         $scenarios[self::SCENARIO_ADMIN_UPDATE] = [
@@ -44,7 +45,8 @@ class User extends \app\modules\user\models\User
             'email',
             'status',
             'newPassword',
-            'newPasswordRepeat'
+            'newPasswordRepeat',
+            'role'
         ];
 
         return $scenarios;
@@ -58,6 +60,25 @@ class User extends \app\modules\user\models\User
         ]);
     }
 
+    public function updateRole()
+    {
+        $auth = Yii::$app->authManager;
+
+        // отвязываем роли
+        $currentRoles = $auth->getRolesByUser($this->id);
+        foreach ($currentRoles as $currentRole) {
+            $auth->revoke($currentRole, $this->id);
+        }
+
+        // привязываем роль
+        if (is_null($auth->getAssignment($this->role, $this->id))) {
+            $role = $auth->getRole($this->role);
+            if (!is_null($role)) {
+                $auth->assign($role, $this->id);
+            }
+        }
+    }
+
     public function beforeSave($insert)
     {
         if (parent::beforeSave($insert)) {
@@ -65,6 +86,7 @@ class User extends \app\modules\user\models\User
                 $this->setPassword($this->newPassword);
             }
 
+            $this->updateRole();
             return true;
         }
 

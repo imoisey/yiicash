@@ -80,7 +80,7 @@ $this->title = Yii::$app->name;
                         ],
                         'body' => Module::t('module', 'Events not found.'),
                         'closeButton' => false
-                    ]); 
+                    ]);
                 ?>
             <?php endif; ?>
 
@@ -134,7 +134,7 @@ $this->title = Yii::$app->name;
                         <div class="form-group">
                             <label class="control-label" for="eventEmployee"><?= Module::t('module', 'Employeer')?></label>
 
-                            <?= Html::DropDownList('user_id', null, ArrayHelper::map(User::find()->active()->all(), 'id', 'fullname'), [
+                            <?= Html::DropDownList('user_id', null, $eventForm->getEmployeers(), [
                                 'class' => 'form-control',
                                 'data-field-employee' => true,
                                 'required' => true

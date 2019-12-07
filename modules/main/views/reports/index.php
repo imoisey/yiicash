@@ -14,10 +14,10 @@ $this->title = Yii::$app->name;
 
     <?php include "_search.php" ?>
 
-    <?php if($provider->getTotalCount() > 0) : ?>
+    <?php if ($provider->getTotalCount() > 0) : ?>
         <hr>
         <h4 class="text-center"><?= Module::t('module', 'Period from to', [
-                'from_date' => $model->from_date, 
+                'from_date' => $model->from_date,
                 'to_date' => $model->to_date
             ])?>
         </h4>

@@ -17,7 +17,7 @@ class Cash
             )->queryScalar();
         }
 
-        return $this->total;
+        return $this->total ? $this->total : 0;
     }
 
     public function getStatusAvailable()

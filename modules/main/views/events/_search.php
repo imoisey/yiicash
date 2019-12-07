@@ -46,7 +46,9 @@ use app\modules\user\models\User;
                     'options' => [
                         'tag' => false
                     ]
-                ])->dropDownList($modelEventSearch->getEmployeerList(), [
+                ])->dropDownList(
+                    $modelEventSearch->getEmployeerList(),
+                    [
                         'class' => 'form-control',
                         'prompt' => Module::t('module', 'Select Employeer')
                     ]

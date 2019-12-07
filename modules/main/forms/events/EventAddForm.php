@@ -4,6 +4,8 @@ namespace app\modules\main\forms\events;
 
 use yii\base\Model;
 use app\modules\main\Module;
+use yii\helpers\ArrayHelper;
+use app\modules\user\models\User;
 
 class EventAddForm extends Model
 {
@@ -24,5 +26,10 @@ class EventAddForm extends Model
             'operations' => Module::t('module', 'Operations'),
             'content' => Module::t('module', 'Comment'),
         ];
+    }
+
+    public function getEmployeers()
+    {
+        return User::find()->getAllWithoutMeBySelect();
     }
 }

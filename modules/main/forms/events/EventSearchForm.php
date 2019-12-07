@@ -40,15 +40,15 @@ class EventSearchForm extends Model
     {
         $eventQuery = Event::find();
 
-        if($this->from_date) {
+        if ($this->from_date) {
             $eventQuery->andFilterWhere(['>=', 'created_at', Yii::$app->formatter->asDatetime($this->from_date, 'php:Y-m-d 00:00:00')]);
         }
 
-        if($this->to_date) {
+        if ($this->to_date) {
             $eventQuery->andFilterWhere(['<=', 'created_at', Yii::$app->formatter->asDatetime($this->to_date, 'php:Y-m-d 23:59:59')]);
         }
 
-        if($this->employeer_id) {
+        if ($this->employeer_id) {
             $eventQuery->andFilterWhere(['=', 'author_id', $this->employeer_id]);
         }
 
@@ -70,8 +70,8 @@ class EventSearchForm extends Model
     public function getEmployeerList()
     {
         return ArrayHelper::map(
-            User::find()->active()->all(), 
-            'id', 
+            User::find()->active()->all(),
+            'id',
             'fullname'
         );
     }

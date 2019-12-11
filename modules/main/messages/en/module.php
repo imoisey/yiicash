@@ -36,5 +36,7 @@ return [
     'Limits' => 'Limits',
     'Award' => 'Award',
     'Save' => 'Save',
-    'Limits successfully added' => 'Limits successfully added'
+    'Limits successfully added' => 'Limits successfully added',
+    'Monthly bonus limit exceeded' => 'Monthly bonus limit exceeded',
+    'Monthly penalty limit exceeded' => 'Monthly penalty limit exceeded'
 ];

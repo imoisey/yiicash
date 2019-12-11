@@ -82,7 +82,14 @@ class EventsController extends Controller
             return $this->redirect('index');
         }
 
-        Yii::$app->session->setFlash("danger", Module::t('module', 'Event not added'));
+        if($eventForm->hasErrors()) {
+            foreach($eventForm->getErrors() as $attribute => $errors) {
+                foreach($errors as $error) {
+                    Yii::$app->session->addFlash("danger", $error);
+                }
+            }
+        }
+
         return $this->redirect('index');
     }
 }

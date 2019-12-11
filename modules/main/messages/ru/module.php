@@ -37,5 +37,7 @@ return [
     'Limits' => 'Лимиты',
     'Award' => 'Премия',
     'Save' => 'Сохранить',
-    'Limits successfully added' => 'Лимиты успешно обновлены'
+    'Limits successfully added' => 'Лимиты успешно обновлены',
+    'Monthly bonus limit exceeded' => 'Лимит премий за месяц исчерпан',
+    'Monthly penalty limit exceeded' => 'Лимит штрафов за месяц исчерпан'
 ];

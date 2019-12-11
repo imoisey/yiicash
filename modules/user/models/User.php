@@ -2,12 +2,15 @@
 
 namespace app\modules\user\models;
 
+use app\modules\main\models\Operation;
 use Yii;
 use app\modules\user\Module as UserModule;
 use yii\helpers\ArrayHelper;
 use yii\web\IdentityInterface;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
+use yii\db\Query;
 
 /**
  * This is the model class for table "user".
@@ -307,5 +310,45 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     public function validateAuthKey($authKey)
     {
         return $this->getAuthKey() === $authKey;
+    }
+
+    /**
+     * Возвращает оставшийся лимит премий пользователя
+     *
+     * @return void
+     */
+    public function getBalanceAwards()
+    {
+        $balance = (new Query())
+            ->select(new Expression("IF(SUM(amount), l.award - SUM(amount), l.award) as balance"))
+            ->from('{{%limits}} l')
+            ->leftJoin('{{%event}} e', 'e.author_id = l.user_id')
+            ->leftJoin('{{%operation}} o', 'o.event_id = e.id')
+            ->where(['=', 'e.author_id', $this->id])
+            ->andWhere(['=', 'o.type', Operation::TYPE_PLUS])
+            ->andWhere(new Expression("MONTH(e.created_at) = MONTH(NOW()) AND YEAR(e.created_at) = YEAR(NOW())"))
+            ->scalar();
+
+        return $balance;
+    }
+
+    /**
+     * Возвращаете оставшийся лимит штрафов пользователя
+     *
+     * @return void
+     */
+    public function getBalancePenalty()
+    {
+        $balance = (new Query())
+            ->select(new Expression("IF(SUM(amount), l.penalty - SUM(amount), l.penalty) as balance"))
+            ->from('{{%limits}} l')
+            ->leftJoin('{{%event}} e', 'e.author_id = l.user_id')
+            ->leftJoin('{{%operation}} o', 'o.event_id = e.id')
+            ->where(['=', 'e.author_id', $this->id])
+            ->andWhere(['=', 'o.type', Operation::TYPE_MINUS])
+            ->andWhere(new Expression("MONTH(e.created_at) = MONTH(NOW()) AND YEAR(e.created_at) = YEAR(NOW())"))
+            ->scalar();
+        
+        return $balance;
     }
 }
